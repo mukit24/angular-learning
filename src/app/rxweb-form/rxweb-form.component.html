@@ -1,0 +1,21 @@
+<div class="container">
+    <h2>RxWeb Form</h2>
+    <form  [formGroup]="myForm" (submit)="onSubmit()">
+        <div class="mb-3">
+          <label>First Name</label>
+          <input type="text" formControlName="name" class="form-control"  />
+          <small class="form-text text-danger" *ngIf="name.errors && name.touched">{{name.errors['required'].message}}<br/></small>	
+        </div>
+        <div class="mb-3">
+            <label>Marks</label>
+            <input type="text" formControlName="marks" class="form-control"  />
+            <small class="text-danger" *ngIf="marks.errors?.['maxNumber']">{{marks.errors?.['maxNumber'].message }}</small>
+        </div>
+        <div class="mb-3">
+            <label>Age</label>
+            <input type="text" formControlName="age" class="form-control"  />
+            <small class="text-danger" *ngIf="age.errors?.['digit']">{{age.errors?.['digit'].message }}</small>
+        </div>
+        <button [disabled]="!myForm.valid" class="btn btn-primary">Submit</button>
+      </form>
+</div>

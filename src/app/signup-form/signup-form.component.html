@@ -1,0 +1,23 @@
+<div class="d-flex justify-content-start p-4">
+    <form [formGroup]="form">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Username</label>
+            <input formControlName="username" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <div *ngIf="username?.invalid && username?.touched">
+                <div *ngIf="username?.errors?.['required']" class="alert alert-danger">Username is required</div>
+                <div *ngIf="username?.errors?.['cannotContainSpace']" class="alert alert-danger">Username can not contain space</div>
+                <div *ngIf="username?.errors?.['shouldBeUnique']" class="alert alert-danger">Username already Exits</div>
+            </div>
+            
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1">
+        </div>
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>

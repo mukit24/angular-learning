@@ -1,0 +1,12 @@
+<h1>{{task.assignee?.name}}</h1>
+<h2 highlight>Mouse Over Me</h2>
+<h2 *ngIf="authors.length == 0; else authors_list">No authors Here</h2>
+<ng-template #authors_list>
+    <h2>{{authors.length}} Authors</h2>
+    <button class="btn btn-success btn-sm" (click)="onAdd()">Add Course</button>
+    <ul>
+        <li *ngFor="let author of authors;index as i; even as isEven">{{i}}: {{author}}
+            <span *ngIf="isEven">(Even)</span>
+        </li>
+    </ul>    
+</ng-template>
